@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <div class="p-d-flex">
+        <div class="p-mr-2">
+            <p:dataTable var="name" value="#{gameBean.name}">
+                <p:column headerText="Game name">
+                    <h:outputText value="#{game.name}"/>
+                </p:column>
+
+                <p:column headerText="Price">
+                    <h:outputText value="#{game.price}"/>
+                </p:column>
+
+                <p:column headerText="Quantity">
+                    <h:outputText value="#{game.quantity}"/>
+                </p:column>
+
+                <p:column headerText="Producer">
+                    <h:outputText value="#{game.producer}"/>
+                </p:column>
+
+            </p:dataTable>
+        </div>
+        <div class="p-mr-2" style="margin-top: 2em">
+            <h:form>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="name" style="margin-right: 1em">Name: </p:outputLabel>
+                    <p:inputText id="name" type="text" value="#{gameBean.name}"/>
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="price" style="margin-right: 1em">Price: </p:outputLabel>
+                    <p:inputText id="price" type="text" value="#{gameBean.price}"/>
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="quantity" style="margin-right: 1em">Quantity: </p:outputLabel>
+                    <p:inputText id="quantity" type="text" value="#{gameBean.quantity}"/>
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="producer" style="margin-right: 1em">Producer: </p:outputLabel>
+                    <p:inputText id="producer" type="text" value="#{gameBean.producer}"/>
+                </div>
+                <h:commandButton style="margin: 2em" type="submit" actionListener="#{gameBean.addGame}"
+                                 value="Add Game"
+                                 icon="pi pi-check" iconPos="right"/>
+                <h:commandButton style="margin: 2em" type="submit" actionListener="#{gameBean.deleteGame}"
+                                 value="Delete Game"
+                                 icon="pi pi-check" iconPos="right"/>
+            </h:form>
+        </div>
+    </div>
+
+</h:body>
+</html>
